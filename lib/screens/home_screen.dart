@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants.dart';
@@ -21,16 +22,34 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         shadowColor: FB_TEXT_COLOR_WHITE,
         elevation: 2,
-        title: CustomText(
-          text: 'facebook',
-          fontSize: 25.sp,
-          color: FB_PRIMARY,
-          fontFamily: 'Klavika',
+        title: Row(
+          children: [
+            CustomText(
+              text: 'facebook',
+              fontSize: 25.sp,
+              color: FB_PRIMARY,
+              fontFamily: 'Klavika',
+            ),
+            SizedBox(width: 12.w),
+            Flexible(
+              child: Text(
+                'Hello World, Matt Kusain',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       body: PageView(
         controller: _pageController,
-        children: const <Widget>[NewsFeedScreen()],
+        children: const <Widget>[
+          NewsFeedScreen(),
+        ],
         onPageChanged: (page) {
           setState(() {
             _selectedIndex = page;
@@ -38,8 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false, // selected item
-        showUnselectedLabels: false, // unselected item
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         onTap: _onTappedBar,
         items: const [
           BottomNavigationBarItem(
