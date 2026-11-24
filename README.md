@@ -3,4 +3,4 @@
 # INF241
 #
 
-Laboratory 0: Discussion
+Laboratory 1: File Structuring | Design Pattern
